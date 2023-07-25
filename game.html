@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="ba.css">
+</head>
+<body>
+    <div id="container">
+        <div id="game">
+            <div id="rect1"> 
+            </div> <div id="bullet"></div>
+            <div id="enemy"></div>
+            <div id="enemy1"></div>
+            <div id="enemy2"></div>
+            <button id="go" >GameOver</button>
+            <div id="score">score:</div>
+        </div>
+        <p style="color:red; position: absolute; left: 2vw; font-size: 2vw;" id="txt"></p>
+        <p style="color:red; position: absolute; left: 6vw; font-size: 2vw;" id="txt1"></p>
+        
+        
+    </div>
+<script>
+
+   
+        var hero=document.getElementById("rect1");
+        var enemy=document.getElementById("enemy");
+        var enemy1=document.getElementById("enemy1");
+        var enemy2=document.getElementById("enemy2");
+        
+        var hx=10;
+        var ey=10;
+        //hero
+        var heroPos=hero.getBoundingClientRect()
+        var herox=heroPos.x;
+        var heroy=heroPos.y;
+        var herowidth=heroPos.width;
+        var heroheight=heroPos.height;
+       
+        //hero
+
+        //enemy
+        var enemyPos=enemy.getBoundingClientRect()
+        var enemyx=enemyPos.x;
+        var enemyy=enemyPos.y;
+        var enemywidth=enemyPos.width;
+        var enemyheight=enemyPos.height;
+       
+       
+      
+        var game=document.getElementById("container")
+        //enemy
+         //enemy1
+        var enemyPos1=enemy1.getBoundingClientRect()
+        var enemyx1=enemyPos1.x;
+        var enemyy1=enemyPos1.y;
+        var enemywidth1=enemyPos1.width;
+        var enemyheight1=enemyPos1.height;
+         //enemy1
+
+          //enemy2
+        var enemyPos2=enemy2.getBoundingClientRect()
+        var enemyx2=enemyPos2.x;
+        var enemyy2=enemyPos2.y;
+        var enemywidth2=enemyPos2.width;
+        var enemyheight2=enemyPos2.height;
+         //enemy2
+
+
+         //gameOver
+        
+        //gameOver
+        //bullet
+           
+        //bullet
+        
+
+       
+
+        //boolean
+        var  collide=true;
+        //boolean
+        //score
+
+        var count=0;
+        var scor=document.getElementById('score')
+        
+         //score
+      
+        function allevent(){
+            const arr=[720,950,1180,1410,1640,1870]
+        var rand=arr[(Math.floor(Math.random()*(arr.length)))]
+        enemyx=rand
+        enemy.style.left=enemyx+"px"
+
+        const arr1=[720,950,1180,1410,1640,1870]
+        var rand1=arr1[(Math.floor(Math.random()*(arr1.length)))]
+        enemyx1=rand1
+        enemy1.style.left=enemyx1+"px"
+
+        const arr2=[720,950,1180,1410,1640,1870]
+        var rand2=arr2[(Math.floor(Math.random()*(arr2.length)))]
+        enemyx2=rand2
+        enemy2.style.left=enemyx2+"px"
+
+        pj1=document.getElementById('txt1')
+        pj1.innerHTML=rand;
+        
+        window.addEventListener("keydown",function(e){
+            key=e.keyCode
+            console.log(key)
+            switch (key) {
+                case 39:
+                    if(herox<1870){
+                   
+                    
+                    hero.style.left=(herox+230)+"px"
+                    herox+=230;
+                }
+                    break;
+                case 37:
+                if (herox>=729){
+
+                    hero.style.left=(herox-230)+'px';
+                    herox-=230;
+                   
+                    
+                   
+        }
+        break;
+        
+
+        case 38:
+            if(collide==true){
+            var bul=document.createElement('div')
+            bul.classList.add('bullet')
+            bul.style.left=herox+"px";
+            game.appendChild(bul)
+          
+            var bulPos=bul.getBoundingClientRect()
+            var bulx=bulPos.x;
+            var buly=bulPos.y;
+            var bulwidth=bulPos.width;
+            var bulheight=bulPos.height;
+           
+            
+            var bullet=setInterval(function(){
+                bul.style.top=buly+'px';
+                buly-=10;
+                
+                if(buly<1){
+                    game.removeChild(bul)
+                    clearInterval(bullet)
+                }
+                if ( (enemyy+enemyheight)>buly && bulx==enemyx)
+                    {
+                       
+                        count+=1
+                        scor.innerHTML="Score:"+count
+                        game.removeChild(bul)
+                        clearInterval(bullet)
+                        enemy.style.top=enemyy+"px";
+                        enemyy=90
+                      
+                        const arr=[720,950,1180,1410,1640,1870]
+                        var rand=arr[(Math.floor(Math.random()*(arr.length)))]
+                        enemyx=rand;
+                        enemy.style.left=enemyx+"px"
+                       
+                       
+                    } 
+
+                    else if ( (enemyy1+enemyheight1)>buly && bulx==enemyx1)
+                    {
+                        
+                        count+=1
+                        scor.innerHTML="Score:"+count
+                        game.removeChild(bul)
+                        clearInterval(bullet)
+                        enemy.style.top=enemyy1+"px";
+                        enemyy1=100
+                        const arr1=[720,950,1180,1410,1640,1870]
+                        var rand1=arr1[(Math.floor(Math.random()*(arr1.length)))]
+                        enemyx1=rand1;
+                        enemy1.style.left=enemyx1+"px"
+                      
+                       
+                        
+                    } 
+
+                    else if ( (enemyy2+enemyheight2)>buly && bulx==enemyx2)
+                    {
+                       
+
+                        count+=1
+                        scor.innerHTML="Score:"+count
+                        game.removeChild(bul)
+                        clearInterval(bullet)
+                        enemy.style.top=enemyy2+"px";
+                        enemyy2=110
+                        const arr2=[720,950,1180,1410,1640,1870]
+                        var rand2=arr2[(Math.floor(Math.random()*(arr2.length)))]
+                        enemyx2=rand2;
+                        enemy2.style.left=enemyx2+"px"
+                        
+                     
+                    } 
+
+},10)}
+break;
+            
+
+    default:
+   }
+})
+console.log(heroPos)
+} 
+
+    function gameloop(){
+      
+    enemy.style.top=enemyy+"px";
+    enemyy+=2;
+
+    enemy1.style.top=enemyy1+"px";
+    enemyy1+=2;
+    pj=document.getElementById("txt")
+    txt.innerHTML=enemyy1;
+
+    enemy2.style.top=enemyy2+"px";
+    enemyy2+=2;
+    var GO=document.getElementById("go")
+
+    if(enemyy>=850 || enemyy1>=850 || enemyy2>=850 )
+    {GO.style.visibility="visible"
+        collide=false
+        // clearInterval(an)
+    }
+
+    if(collide==false){
+        count=0
+        scor.innerHTML="Score:"+count
+        enemyy=110;
+        enemyy1=110
+        enemyy2=110
+        count=0
+            GO.addEventListener("click",function(){
+            GO.style.visibility="hidden"
+                
+            collide=true
+                console.log(collide)})}
+
+       
+}
+
+if(collide==true){
+allevent()
+
+
+}
+gameloop()
+var an=setInterval(gameloop,10)
+
+       
+    </script>
+</html>

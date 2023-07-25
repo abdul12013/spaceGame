@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    overflow-x: hidden;
+}
+#container{
+    
+    display:flex;
+    
+    height: 100vh;
+    width: 100vw;
+    background: url("BAC.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    
+}
+#game{
+    display:flex;
+    height:80vh;
+    width:50vw;
+    background: url("134-1348814_free-space-backgrounds-group-space-invaders-game-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-self: center;
+    margin-left:25vw;
+   
+}
+ #rect1{
+    display:flex;
+    position: absolute;
+    top:70%;
+    left: 720px;
+    /* border:2px solid red; */
+    height: 30vh;
+    width:15vw;
+    background: url("superhero.gif");
+    
+    
+    background-size: 20vh;
+    background-repeat: no-repeat;
+    animation: 2s linear infinite;
+    
+}
+#enemy{
+    display:flex;
+    position: absolute;
+    top:10%;
+    left:720px;
+    height: 10vh;
+    width:5vw;
+    
+   
+    background:url("daygbbc-54682f3c-6766-4932-af1d-3a796063eccf.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#enemy1{
+    display:flex;
+    position: absolute;
+    top:10%;
+    left:720px;
+    height: 10vh;
+    width:5vw;
+    
+   
+    background:url("daygbbc-54682f3c-6766-4932-af1d-3a796063eccf.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#enemy2{
+    display:flex;
+    position: absolute;
+    top:10%;
+    left:720px;
+    height: 10vh;
+    width:5vw;
+    
+    background:url("daygbbc-54682f3c-6766-4932-af1d-3a796063eccf.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+.bullet{
+    display:flex;
+    position: absolute;
+    top:70%;
+    /* border:2px solid red; */
+    height: 10vw;
+    width: 5vw;
+    background: url("bullet.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+}
+#go{
+    position: absolute;
+    left:40vw;
+    top:40vh;
+    height: 14vh;
+    width: 20vw;
+    background: #f20044;
+    border: 2px solid red;
+    border-radius: 33px;
+    font-size: 3vw;
+    color: aquamarine;
+    
+    cursor: pointer;
+    font-family: cursive;
+    box-shadow: 5px 5px 20px 5px #f20044;
+    font-weight: 300;
+    text-shadow:  7px 1px 5px aquamarine;
+    visibility: hidden;
+}
+#score{
+    display:flex;
+    text-align: center;
+    font-size: 2vw;
+    font-family: cursive;
+    
+    position: absolute;
+    top:1%;
+    left:1170px;
+    height: 6vh;
+    width:9vw;
+    color:bisque;
+    text-shadow:  5px 1px 5px bisque;
+    border:2px solid burlywood;
+    border-radius: 20px;
+    background:fuchsia;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    html{
+        overflow-x: hidden;
+    }
+    body{
+        height: 100vh;
+        width: 100vw;
+        background: #0b1522;
+       
+    }
+    #btn{
+        display: flex;
+        height: 11vh;
+        width: 17vw;
+        position: absolute;
+        left: 42%;
+        top:45vh;
+        border: 2px solid blueviolet;
+        border-radius: 30px;
+        background: blueviolet;
+        box-shadow:  3px 3px 2vw 5px blueviolet;
+        cursor: pointer;
+       
+    }
+    p{
+       position: absolute;
+       top: -3vh;
+       left:27% ;
+        font-size: 5vh;
+        font-family: cursive;
+    }
+</style>
+<button id="btn" onclick="op()"><p>Start</p></button>
+<script>
+    function op(){
+        window.open("game.html")
+    }
+</script>
+</body>
+</html>
